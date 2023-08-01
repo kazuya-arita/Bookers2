@@ -15,7 +15,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar brand" href="/">
+          <a class="navbar-brand" href="/">
             <span>
               <p>Bookers</p>
             </span>
@@ -28,31 +28,41 @@
           
           <div class="cllapse navbar-colapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-             <% if user_signed_in? %>
               <li>
-               <%= link_to books_path method: :get do %>
-                <i class="fa-solid fa-house"></i>Home
+               <%= link_to books_path, class: 'nav-link text-light' do %>
+                <i class="fa-solid fa-house"></i> Home
                <% end %>  
               </li>
+             <% if user_signed_in? %>
               
               <li>
-               <%= "Users" %>
+                
+                <i class="fa-solid fa-users"></i> Users
               </li>
               <li>
-               <%= "Books" %>
+               
+                <i class="fa-solid fa-book-open"></i> Books
               </li>
               <li>
-               <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+               <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+                <i class="fa-solid fa-right-from-bracket"></i> Log out
+               <% end %>  
               </li>
              <% else %>
               <li>
-               <%= link_to "About", about_path %>
+               <%= link_to about_path, class:'nav-link text-light' do%>
+                <i class="fa-solid fa-link"></i> About
+               <% end %>  
               </li>
               <li>
-               <%= link_to "Sign-up", new_user_registration_path %>
+               <%= link_to new_user_registration_path, class:'nav-link text-light'  do %>
+                <i class="fa-solid fa-user-plus"></i> Sign up
+               <% end %>  
               </li>
               <li>
-               <%= link_to "Log-in", new_user_session_path %>
+               <%= link_to new_user_session_path, class:'nav-link text-light' do %>
+                <i class="fa-solid fa-right-to-bracket"></i> Log in
+               <% end %>  
               </li>
              <% end %> 
             </ul>
