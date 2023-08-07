@@ -15,7 +15,7 @@
     <tboby>
       <tr>
        <td>
-        <%= link_to user_path(current_user) do %>
+        <%= link_to user_path(@user) do %>
          <%= image_tag @book_show.user.get_profile_image(100,100) %><br>
          <%= @user.name %>
         <% end %> 
@@ -27,10 +27,10 @@
         <% end %> 
        <td><%= @book_show.body %></td>
        
-       
+       <% if @user == current_user %>
        <td><%= link_to "Edit", edit_book_path(@book_show.id), class: "btn btn-sm btn-success edit_book_path" %></td>
        <td><%= link_to "Destroy", book_path(@book_show.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger destroy_book_path" %></td>
-       
+       <% end %>
        
       </tr> 
     </tboby>
